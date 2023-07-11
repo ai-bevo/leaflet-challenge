@@ -56,7 +56,7 @@ function createMarkers(data){
               .bindPopup(`<h3> Location: ${(markers[i].properties.place)}</h3>
               <hr><h4> Time: ${Date(markers[i].properties.time)}</h4>
               <hr><h4> Magnitude: ${mag} ML</h4>
-              <hr><h4>Depth: ${depth} km</h4>`)
+              <hr><h4>Depth: ${depth.toFixed(2)} km</h4>`)
               .addTo(myMap);
       }
     };
@@ -80,8 +80,8 @@ legend.onAdd = function () {
 
     div.innerHTML = "<h3>Earthquake Depth (km)</h3>" + legendInfo;
 
-
-    div.innerHTML += "<ul>" + labels.join("") + "</ul>";
+    // add background color to legend
+    div.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
     return div;
 };
 
